@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input oninput= debounce(main,1500) type="text" placeholder="Enter Text.....">
+</body>
+</html>
+
+<script>
+
+    let timerId;
+    const debounce = (Fn, delaytime) => {
+
+
+
+        console.log('timerId:', timerId)
+        if(timerId) {
+            clearInterval(timerId);
+        }
+        timerId = setTimeout(function() {
+            Fn();
+        },delaytime);
+    }
+
+    const main = () => {
+        const Input = document.querySelector("input").value;
+        if(Input === "") {
+            window.location.href = "index.html";
+        }
+        console.log('Input:', Input)
+        console.log("main")
+    }
+
+</script>
